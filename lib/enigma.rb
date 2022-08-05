@@ -2,7 +2,16 @@ require 'date'
 
 class Enigma
   
+  def keys_hash(key)
+    keys_hash = Hash.new(0)
 
+    keys_hash[:a_key] = key[0..1].to_i
+    keys_hash[:b_key] = key[1..2].to_i
+    keys_hash[:c_key] = key[2..3].to_i
+    keys_hash[:d_key] = key[3..4].to_i
+
+    keys_hash
+  end
 
   def offsets_hash (date)
     offsets = Hash.new(0)
@@ -31,7 +40,7 @@ class Enigma
       encrypt_hash[:key] = rand.to_s[2..6]
     end
     #Keys A-D
-
+    keys_hash(encrypt_hash[:key])
     #--------------------------------------------
     #DATE
     if !details[2].nil? && details[2].size == 6 
@@ -40,7 +49,6 @@ class Enigma
         encrypt_hash[:date] = Date.today.strftime("%m%d%C")
     end
     #--------------------------------------------
-require 'pry'; binding.pry
 #OFFSETS
 
     offsets_hash(encrypt_hash[:date]) #helper
