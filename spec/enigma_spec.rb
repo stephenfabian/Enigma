@@ -53,17 +53,31 @@ describe Enigma do
    
   end
 
-    it 'has keys A-D' do
-      enigma = Enigma.new
-      
-      expected = {
-                    :a_key => 02,
-                    :b_key => 27,
-                    :c_key => 71,
-                    :d_key => 15
-                  }
-      expect(enigma.keys_hash("02715")).to eq(expected)
-    end
+  xit 'has keys A-D' do
+    enigma = Enigma.new
+    
+    expected = {
+                  :a_key => 02,
+                  :b_key => 27,
+                  :c_key => 71,
+                  :d_key => 15
+                }
+    expect(enigma.keys_hash("02715")).to eq(expected)
+  end
+
+  it 'can calculate each shift - key + offset' do
+    enigma = Enigma.new
+    enigma.keys_hash("02715")
+    enigma.offsets_hash("040895")
+
+    expected = {
+                :a_shift => 3,
+                :b_shift => 27,
+                :c_shift => 73,
+                :d_shift => 20
+              }
+    expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
+  end
 
   xit 'can encrypt a message' do
     enigma = Enigma.new
