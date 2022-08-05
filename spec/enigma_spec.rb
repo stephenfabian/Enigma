@@ -41,6 +41,13 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
   
+  it 'has offsets A-D' do
+   enigma = Enigma.new
+   enigma.encrypt("hello world", "02715", "040895")
+
+   expect(enigma.offsets).to eq([1, 0, 2, 5])
+   
+  end
   xit 'can encrypt a message' do
     enigma = Enigma.new
     expected = {

@@ -2,6 +2,9 @@ require 'date'
 
 class Enigma
   
+
+
+
   def encrypt(*details)
 
     encrypt_hash = Hash.new(0)
