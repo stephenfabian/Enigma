@@ -53,6 +53,18 @@ describe Enigma do
    
   end
 
+    it 'has keys A-D' do
+    enigma = Enigma.new
+    
+    expected = {
+                  :a_key => 02,
+                  :b_key => 27,
+                  :c_key => 71,
+                  :d_key => 15
+                }
+    expect(enigma.keys_hash).to eq(expected)
+    end
+
   xit 'can encrypt a message' do
     enigma = Enigma.new
     expected = {

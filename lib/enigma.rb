@@ -3,6 +3,7 @@ require 'date'
 class Enigma
   
 
+
   def offsets_hash (date)
     offsets = Hash.new(0)
     date_squared = date.to_i * date.to_i
