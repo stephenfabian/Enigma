@@ -76,7 +76,7 @@ describe Enigma do
                 :c_shift => 73,
                 :d_shift => 20
               }
-    expect(enigma.shifts).to eq(expected)
+    expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
   xit 'can encrypt a message' do
