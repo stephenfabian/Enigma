@@ -17,7 +17,7 @@ describe Enigma do
     expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
   end
     
-  it 'can accept key and date as optional arguments - test1' do
+  xit 'can accept key and date as optional arguments - test1' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world")
 
@@ -25,7 +25,7 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
 
-  it 'can accept key and date as optional arguments - test2 ' do
+  xit 'can accept key and date as optional arguments - test2 ' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world", "02715")
 
@@ -33,7 +33,7 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
   
-  it 'can accept key and date as optional arguments - test3 ' do
+  xit 'can accept key and date as optional arguments - test3 ' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world", "040895")
 
@@ -41,11 +41,15 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
   
-  it 'has offsets A-D' do
+  xit 'has offsets A-D' do
    enigma = Enigma.new
-   enigma.encrypt("hello world", "02715", "040895")
+   expected = { a_offset = 1,
+                b_offset = 0,
+                a_offset = 2,
+                a_offset = 5,
+              }
 
-   expect(enigma.offsets).to eq([1, 0, 2, 5])
+   expect(enigma.offsets_hash("040895")).to eq(expected)
    
   end
   xit 'can encrypt a message' do
