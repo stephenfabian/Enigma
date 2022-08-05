@@ -7,7 +7,7 @@ describe Enigma do
     expect(enigma).to be_an_instance_of(Enigma)
   end
 
-  it 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
+  xit 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
     enigma = Enigma.new
     expected = {
                 encryption: "hello world", #encryption not yet built
@@ -52,6 +52,18 @@ describe Enigma do
    expect(enigma.offsets_hash("040895")).to eq(expected)
    
   end
+
+    it 'has keys A-D' do
+      enigma = Enigma.new
+      
+      expected = {
+                    :a_key => 02,
+                    :b_key => 27,
+                    :c_key => 71,
+                    :d_key => 15
+                  }
+      expect(enigma.keys_hash("02715")).to eq(expected)
+    end
 
   xit 'can encrypt a message' do
     enigma = Enigma.new
