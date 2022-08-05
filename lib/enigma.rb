@@ -3,8 +3,17 @@ require 'date'
 class Enigma
   
 
-  def offsets_hash
- 
+  def offsets_hash (date)
+    offsets = Hash.new(0)
+    date_squared = date.to_i * date.to_i
+    last_four_digits_array = date_squared.digits.first(4).reverse
+
+    offsets[:a_offset] = last_four_digits_array[0]
+    offsets[:b_offset] = last_four_digits_array[1]
+    offsets[:c_offset] = last_four_digits_array[2]
+    offsets[:d_offset] = last_four_digits_array[3]
+
+    offsets
   end
 
 
@@ -22,8 +31,6 @@ class Enigma
     end
     #Keys A-D
 
-
-    require 'pry'; binding.pry
     #--------------------------------------------
     #DATE
     if !details[2].nil? && details[2].size == 6 
@@ -32,10 +39,10 @@ class Enigma
         encrypt_hash[:date] = Date.today.strftime("%m%d%C")
     end
     #--------------------------------------------
+require 'pry'; binding.pry
+#OFFSETS
 
-    # offsets(date) ****
-    #OFFSETS
-
+    offsets_hash(encrypt_hash[:date]) #helper
     #--------------------------------------------
     encrypt_hash
   end

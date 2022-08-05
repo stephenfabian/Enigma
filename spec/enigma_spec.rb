@@ -2,7 +2,7 @@ require './enigma'
 
 describe Enigma do 
 
-  it 'exists' do
+  xit 'exists' do
     enigma = Enigma.new
     expect(enigma).to be_an_instance_of(Enigma)
   end
@@ -43,15 +43,16 @@ describe Enigma do
   
   xit 'has offsets A-D' do
    enigma = Enigma.new
-   expected = { a_offset = 1,
-                b_offset = 0,
-                a_offset = 2,
-                a_offset = 5,
+   expected = { :a_offset => 1,
+                :b_offset => 0,
+                :c_offset => 2,
+                :d_offset => 5,
               }
 
    expect(enigma.offsets_hash("040895")).to eq(expected)
    
   end
+
   xit 'can encrypt a message' do
     enigma = Enigma.new
     expected = {
