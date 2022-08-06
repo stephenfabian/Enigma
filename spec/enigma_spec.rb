@@ -65,7 +65,7 @@ describe Enigma do
     expect(enigma.keys_hash("02715")).to eq(expected)
   end
 
-  it 'can calculate each shift - key + offset' do
+  xit 'can calculate each shift - key + offset' do
     enigma = Enigma.new
     enigma.keys_hash("02715")
     enigma.offsets_hash("040895")
@@ -79,7 +79,7 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
-  xit 'can encrypt a message' do
+  it 'can encrypt a message' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
