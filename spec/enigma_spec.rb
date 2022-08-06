@@ -79,14 +79,14 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
-  it 'change shift one character of a message' do
+  xit 'change shift one character of a message' do
    
     enigma = Enigma.new
     
     expect(enigma.change_letter("h", 3)).to eq("k")
   end
 
-  xit 'can encrypt a message' do
+  it 'can encrypt a message' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
@@ -95,6 +95,12 @@ describe Enigma do
               }
     expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
 
+  end
+
+  it 'can shift a whole message' do
+   enigma = Enigma.new
+
+   expect(enigma.shift_message).to eq("keder ohulw")
   end
 
 end

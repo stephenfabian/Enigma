@@ -2,6 +2,13 @@
 
   class Enigma
 
+    # def initialize(message, key, date)
+    #   @date = date
+    #   @key = key
+    #   @date = date
+
+    # end
+
       def keys_hash(key)
         keys = Hash.new(0)
 
@@ -57,28 +64,27 @@
       end
 
     #SHIFTS
-      alphabet_array = ("a".."z").to_a << " "
+    
       shifts = (shifts_hash(encrypt_hash[:key], encrypt_hash[:date])).values
       message = encrypt_hash[:encryption].split("")
-      encrypted_msg = []
-  
-#rotate letter
+   
+      alphabet_array = ("a".."z").to_a << " "
 
-  
-
-        message.each.with_index do |msg_character, index|
-          alphabet_array.each.with_index(alphabet_array.find_index(msg_character)) do |letter, index|
-            shifts.each do |shift|
-              if letter == msg_character
-                alphabet_array.rotate(shift)
-                encrypted_msg << alphabet_array[index]
-              end
-            end
           end
         end
-    require 'pry'; binding.pry
-  
-      encrypt_hash
+       
+        encrypt_hash
     end
-  
+
+     
+    
+
+     def change_letter(character, shift)
+          alphabet_array = ("a".."z").to_a << " "
+          rotated_alphabet = alphabet_array.rotate(shift)
+          if !alphabet_array.include?(character)
+             return character
+          end
+          rotated_alphabet[alphabet_array.find_index(character)]
+        end
   end
