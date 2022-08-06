@@ -62,6 +62,9 @@
       message = encrypt_hash[:encryption].split("")
       encrypted_msg = []
   
+#rotate letter
+
+  
 
         message.each.with_index do |msg_character, index|
           alphabet_array.each.with_index(alphabet_array.find_index(msg_character)) do |letter, index|
