@@ -65,13 +65,15 @@
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
-  
-      #encryption
-      encrypt_hash[:encryption] = rotate_message(details[0], shifts_hash())
-    
-      # shifts = (shifts_hash(encrypt_hash[:key], encrypt_hash[:date])).values
-         
-        encrypt_hash
+      shifts = shifts_hash(key_generator(*details), date_generator(*details))
+   
+      encrypt_hash[:encryption] = rotate_message(details[0], shifts)
+      
+      encrypt_hash[:key] = key_generator(*details)
+
+      encrypt_hash[:date] = date_generator(*details)
+
+      encrypt_hash
     end
 
             
