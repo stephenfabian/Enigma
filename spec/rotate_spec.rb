@@ -1,3 +1,4 @@
+require_relative 'spec_helper.rb'
 require './rotate'
 
 describe Rotate do
@@ -12,7 +13,7 @@ describe Rotate do
     it '.rotate_message - can shift a whole message' do
       shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
 
-      expect(@rotate.rotate_message("hello world", shifts)).to eq("keder ohulw")
+      expect(@rotate.rotate_message("hello world!", shifts)).to eq("keder ohulw!")
     end
 
     it '.change_letter - shift one character of a message' do
