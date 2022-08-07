@@ -103,7 +103,7 @@ describe Enigma do
     expect(enigma.change_letter("h", 3)).to eq("k")
   end
 
-  xit 'can encrypt a message' do
+  xit 'can return has wtih encryption, key and date' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
