@@ -9,17 +9,13 @@ describe Enigma do
 
   it 'can generate the key - if key is not given, generate random one' do
    enigma = Enigma.new
-   details = ("hello world", "02715", "040895")
-   expect(enigma.key_generator(details)).to eq("02715")
 
-   details = ("hello world", "040895")
-   expect(enigma.key_generator(details).length).to eq(5)
-
-   details = ("hello world")
-   expect(enigma.key_generator(details).length).to eq(5)
+   expect(enigma.key_generator("hello world", "02715", "040895")).to eq("02715")
+   expect(enigma.key_generator("hello world", "02715").length).to eq(5)
+   expect(enigma.key_generator("hello world").length).to eq(5)
   end
 
-  end
+  
   xit 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
     enigma = Enigma.new
     expected = {
@@ -92,7 +88,7 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
-  it 'change shift one character of a message' do
+  xit 'change shift one character of a message' do
    
     enigma = Enigma.new
     
@@ -110,7 +106,7 @@ describe Enigma do
 
   end
 
-  it 'can shift a whole message' do
+  xit 'can shift a whole message' do
    enigma = Enigma.new
    shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
    expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
