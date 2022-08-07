@@ -47,28 +47,28 @@
 
       encrypt_hash = Hash.new(0)
       #MESSAGE
-      encrypt_hash[:encryption] = details[0]
 
-      #KEY -     #Keys A-D
+     #key (make into method?)
       if !details[1].nil? && details[1].size == 5 
-        encrypt_hash[:key] = details[1]
+        key = details[1]
       else
-        encrypt_hash[:key] = rand.to_s[2..6]
+        key = rand.to_s[2..6]
       end
 
-      #DATE ->     #OFFSETS
+      #DATE -> (make into method)
       if !details[2].nil? && details[2].size == 6 
-        encrypt_hash[:date] = details[2]
+       date = details[2]
       else
-          encrypt_hash[:date] = Date.today.strftime("%m%d%C")
+          date = Date.today.strftime("%m%d%C")
       end
 
-    #SHIFTS
+      #encryption
+      encrypt_hash[:encryption] = rotate_message(details[0], shifts_hash())
     
       shifts = (shifts_hash(encrypt_hash[:key], encrypt_hash[:date])).values
       message = encrypt_hash[:encryption].split("")
    
-      alphabet_array = ("a".."z").to_a << " "
+
 
        
         encrypt_hash
@@ -80,13 +80,13 @@
       shifted_message = []
       split_message.each.with_index do |msg_character, index|
         if (index.to_f % 4) == 0
-          shifted_message << change_letter(msg_character, shifts[0])
+          shifted_message << change_letter(msg_character, shifts[:a_shift])
         elsif (index % 4) == 1
-          shifted_message << change_letter(msg_character, shifts[1])
+          shifted_message << change_letter(msg_character, shifts[:b_shift])
         elsif (index % 4) == 2
-          shifted_message << change_letter(msg_character, shifts[2])
+          shifted_message << change_letter(msg_character, shifts[:c_shift])
         elsif (index % 4) == 3
-          shifted_message << change_letter(msg_character, shifts[3])
+          shifted_message << change_letter(msg_character, shifts[:d_shift])
         end
       end
       shifted_message.join

@@ -99,7 +99,7 @@ describe Enigma do
 
   it 'can shift a whole message' do
    enigma = Enigma.new
-    shifts = [3, 27, 73, 20]
+   shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
    expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
   end
 
