@@ -1,10 +1,12 @@
   require 'date'
   require_relative './inputs'
+  require_relative './rotate'
 
   class Enigma
 
     def initialize
       @inputs = Inputs.new
+      @rotate = Rotate.new
 
     end
 
@@ -83,7 +85,7 @@
       encrypt_hash = Hash.new(0)
       shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details))
    
-      encrypt_hash[:encryption] = rotate_message(details[0], shifts)
+      encrypt_hash[:encryption] = @rotate.rotate_message(details[0], shifts)
       
       encrypt_hash[:key] = @inputs.key_generator(*details)
 
@@ -96,44 +98,44 @@
 
       decrypt_hash = Hash.new(0)
 
-      shifts = shifts_hash_backwards(key_generator(*details), date_generator(*details))
+      shifts = shifts_hash_backwards(@inputs.key_generator(*details), @inputs.date_generator(*details))
    
-      decrypt_hash[:decryption] = rotate_message(details[0], shifts)
+      decrypt_hash[:decryption] = @rotate.rotate_message(details[0], shifts)
       
-      decrypt_hash[:key] = key_generator(*details)
+      decrypt_hash[:key] = @inputs.key_generator(*details)
 
-      decrypt_hash[:date] = date_generator(*details)
+      decrypt_hash[:date] = @inputs.date_generator(*details)
 
       decrypt_hash
     end
 
             
 
-    def rotate_message(message, shifts)
-      split_message = message.split("")
-      shifted_message = []
-      split_message.each.with_index do |msg_character, index|
-        if (index.to_f % 4) == 0
-          shifted_message << change_letter(msg_character, shifts[:a_shift])
-        elsif (index % 4) == 1
-          shifted_message << change_letter(msg_character, shifts[:b_shift])
-        elsif (index % 4) == 2
-          shifted_message << change_letter(msg_character, shifts[:c_shift])
-        elsif (index % 4) == 3
-          shifted_message << change_letter(msg_character, shifts[:d_shift])
-        end
-      end
-      shifted_message.join
-    end
+    # def rotate_message(message, shifts)
+    #   split_message = message.split("")
+    #   shifted_message = []
+    #   split_message.each.with_index do |msg_character, index|
+    #     if (index.to_f % 4) == 0
+    #       shifted_message << change_letter(msg_character, shifts[:a_shift])
+    #     elsif (index % 4) == 1
+    #       shifted_message << change_letter(msg_character, shifts[:b_shift])
+    #     elsif (index % 4) == 2
+    #       shifted_message << change_letter(msg_character, shifts[:c_shift])
+    #     elsif (index % 4) == 3
+    #       shifted_message << change_letter(msg_character, shifts[:d_shift])
+    #     end
+    #   end
+    #   shifted_message.join
+    # end
 
-    def change_letter(character, shift)
-      alphabet_array = ("a".."z").to_a << " "
-      rotated_alphabet = alphabet_array.rotate(shift)
-      if !alphabet_array.include?(character)
-          return character
-      end
-      rotated_alphabet[alphabet_array.find_index(character)]
-    end
+    # def change_letter(character, shift)
+    #   alphabet_array = ("a".."z").to_a << " "
+    #   rotated_alphabet = alphabet_array.rotate(shift)
+    #   if !alphabet_array.include?(character)
+    #       return character
+    #   end
+    #   rotated_alphabet[alphabet_array.find_index(character)]
+    # end
      
 
   end
