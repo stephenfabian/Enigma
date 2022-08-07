@@ -86,7 +86,7 @@ describe Enigma do
     expect(enigma.change_letter("h", 3)).to eq("k")
   end
 
-  it 'can encrypt a message' do
+  xit 'can encrypt a message' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
@@ -99,8 +99,8 @@ describe Enigma do
 
   it 'can shift a whole message' do
    enigma = Enigma.new
-
-   expect(enigma.shift_message).to eq("keder ohulw")
+    shifts = [3, 27, 73, 20]
+   expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
   end
 
 end

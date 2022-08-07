@@ -70,14 +70,28 @@
    
       alphabet_array = ("a".."z").to_a << " "
 
-          end
-        end
        
         encrypt_hash
     end
 
      
-    
+    def rotate_message(message, shifts)
+      split_message = message.split("")
+      shifted_message = []
+      split_message.each.with_index do |msg_character, index|
+        if (index.to_f / 4) == 0
+          require 'pry'; binding.pry
+          shifted_message << change_letter(msg_character, shifts[0])
+        elsif (index / 4) == 0.25
+            shifted_message << change_letter(msg_character, shifts[1])
+          elsif (index / 4) == 0.50
+            shifted_message << change_letter(msg_character, shifts[2])
+          elsif (index / 4) == 1
+            shifted_message << change_letter(msg_character, shifts[3])
+          end
+      end
+      shifted_message
+    end
 
      def change_letter(character, shift)
           alphabet_array = ("a".."z").to_a << " "
