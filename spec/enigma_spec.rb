@@ -82,7 +82,7 @@ describe Enigma do
     expect(enigma.keys_hash("02715")).to eq(expected)
   end
 
-  xit 'can calculate each shift - key + offset' do
+  it '.shifts_hash - can calculate each shift: key + offset' do
     enigma = Enigma.new
     enigma.keys_hash("02715")
     enigma.offsets_hash("040895")
@@ -95,6 +95,22 @@ describe Enigma do
               }
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
+
+  it '.shifts_hash_backwards - can calculate each negative shift: key + offset' do
+    enigma = Enigma.new
+    enigma.keys_hash("02715")
+    enigma.offsets_hash("040895")
+
+    expected = {
+                :a_shift => -3,
+                :b_shift => -27,
+                :c_shift => -73,
+                :d_shift => -20
+              }
+    expect(enigma.shifts_hash_backwards("02715", "040895")).to eq(expected)
+  end
+
+
 
   xit 'change shift one character of a message' do
    
@@ -129,5 +145,6 @@ describe Enigma do
                   date: "040895"
                 }
     expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
+    expect(enigma.decrypt(encrypted[:encryption], "02715")).to eq(expected)
   end
 end

@@ -58,7 +58,7 @@
       shifts[:b_shift] = keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset]
       shifts[:c_shift] = keys_hash(key)[:c_key] + offsets_hash(date)[:c_offset]
       shifts[:d_shift] = keys_hash(key)[:d_key] + offsets_hash(date)[:d_offset]
-
+      
       shifts
     end
 
@@ -95,14 +95,14 @@
       shifted_message.join
     end
 
-     def change_letter(character, shift)
-          alphabet_array = ("a".."z").to_a << " "
-          rotated_alphabet = alphabet_array.rotate(shift)
-          if !alphabet_array.include?(character)
-             return character
-          end
-          rotated_alphabet[alphabet_array.find_index(character)]
-        end
+    def change_letter(character, shift)
+      alphabet_array = ("a".."z").to_a << " "
+      rotated_alphabet = alphabet_array.rotate(shift)
+      if !alphabet_array.include?(character)
+          return character
+      end
+      rotated_alphabet[alphabet_array.find_index(character)]
+    end
      
 
   end
