@@ -139,7 +139,6 @@ describe Enigma do
   xit '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
-    require 'pry'; binding.pry
 
     expected =  {
                   decryption: "hello world",
