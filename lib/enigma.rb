@@ -58,6 +58,16 @@
       shifts[:b_shift] = keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset]
       shifts[:c_shift] = keys_hash(key)[:c_key] + offsets_hash(date)[:c_offset]
       shifts[:d_shift] = keys_hash(key)[:d_key] + offsets_hash(date)[:d_offset]
+      
+      shifts
+    end
+
+    def shifts_hash_backwards(key, date)
+      shifts = Hash.new(0)
+      shifts[:a_shift] = -(keys_hash(key)[:a_key] + offsets_hash(date)[:a_offset])
+      shifts[:b_shift] = -(keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset])
+      shifts[:c_shift] = -(keys_hash(key)[:c_key] + offsets_hash(date)[:c_offset])
+      shifts[:d_shift] = -(keys_hash(key)[:d_key] + offsets_hash(date)[:d_offset])
 
       shifts
     end
@@ -74,6 +84,21 @@
       encrypt_hash[:date] = date_generator(*details)
 
       encrypt_hash
+    end
+
+    def decrypt(*details)
+
+      decrypt_hash = Hash.new(0)
+
+      shifts = shifts_hash_backwards(key_generator(*details), date_generator(*details))
+   
+      decrypt_hash[:decryption] = rotate_message(details[0], shifts)
+      
+      decrypt_hash[:key] = key_generator(*details)
+
+      decrypt_hash[:date] = date_generator(*details)
+
+      decrypt_hash
     end
 
             
@@ -95,14 +120,14 @@
       shifted_message.join
     end
 
-     def change_letter(character, shift)
-          alphabet_array = ("a".."z").to_a << " "
-          rotated_alphabet = alphabet_array.rotate(shift)
-          if !alphabet_array.include?(character)
-             return character
-          end
-          rotated_alphabet[alphabet_array.find_index(character)]
-        end
+    def change_letter(character, shift)
+      alphabet_array = ("a".."z").to_a << " "
+      rotated_alphabet = alphabet_array.rotate(shift)
+      if !alphabet_array.include?(character)
+          return character
+      end
+      rotated_alphabet[alphabet_array.find_index(character)]
+    end
      
 
   end
