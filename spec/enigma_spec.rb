@@ -7,33 +7,23 @@ describe Enigma do
     expect(enigma).to be_an_instance_of(Enigma)
   end
 
-  xit 'can generate the key - if key is not given, generate random one' do
-   enigma = Enigma.new
+  # xit 'can generate the key - if key is not given, generate random one' do
+  #  enigma = Enigma.new
 
-   expect(enigma.key_generator("hello world", "02715", "040895")).to eq("02715")
-   expect(enigma.key_generator("hello world", "02715").length).to eq(5)
-   expect(enigma.key_generator("hello world").length).to eq(5)
-  end
+  #  expect(enigma.key_generator("hello world", "02715", "040895")).to eq("02715")
+  #  expect(enigma.key_generator("hello world", "02715").length).to eq(5)
+  #  expect(enigma.key_generator("hello world").length).to eq(5)
+  # end
 
-  xit 'can generate the date - if date is not given, generate todays date'  do
-    enigma = Enigma.new
+  # xit 'can generate the date - if date is not given, generate todays date'  do
+  #   enigma = Enigma.new
    
-    expect(enigma.date_generator("hello world", "02715", "040895")).to eq("040895")
-    expect(enigma.date_generator("hello world", "040895")).to eq("040895")
-    expect(enigma.date_generator("hello world")).to eq(Date.today.strftime("%m%d%C"))
-  end
+  #   expect(enigma.date_generator("hello world", "02715", "040895")).to eq("040895")
+  #   expect(enigma.date_generator("hello world", "040895")).to eq("040895")
+  #   expect(enigma.date_generator("hello world")).to eq(Date.today.strftime("%m%d%C"))
+  # end
 
   
-  xit 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
-    enigma = Enigma.new
-    expected = {
-                encryption: "hello world",
-                key: "02715",
-                date: "040895"
-              }
-    expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
-  end
-    
   xit 'can accept key and date as optional arguments - test1' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world")
@@ -119,7 +109,7 @@ describe Enigma do
     expect(enigma.change_letter("h", 3)).to eq("k")
   end
 
-  xit '.encrypt - can return hash with encryption, key and date' do
+  it '.encrypt - can return hash with encryption, key and date' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
@@ -139,7 +129,6 @@ describe Enigma do
   xit '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
-    require 'pry'; binding.pry
 
     expected =  {
                   decryption: "hello world",

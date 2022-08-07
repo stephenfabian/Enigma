@@ -1,34 +1,36 @@
   require 'date'
+  require_relative './inputs'
 
   class Enigma
 
-    # def initialize(message, key, date)
-    #   @date = date
-    #   @key = key
-    #   @date = date
+    def initialize
+      @inputs = Inputs.new
 
+    end
+
+    #1 helper for encrypt/decrypt
+    # def key_generator(*details)   
+    #   if !details[1].nil? && details[1].size == 5 
+    #     key = details[1]
+    #   else
+    #     random_4_digits = rand.to_s[3..6]
+    #     key = "0#{random_4_digits.to_i}"
+    #   end
     # end
 
-    def key_generator(*details)
-      if !details[1].nil? && details[1].size == 5 
-        key = details[1]
-      else
-        random_4_digits = rand.to_s[3..6]
-        key = "0#{random_4_digits.to_i}"
-      end
-    end
+    # #2 helper for encrypt/decrypt
+    # def date_generator(*details) 
+    #   if !details[1].nil? && details[1].size == 6
+    #    date = details[1] 
+    #   elsif !details[2].nil?
+    #     date = details[2]
+    #   elsif details[1].nil?
+    #       date = Date.today.strftime("%m%d%C")
+    #   end
+    # end
 
-    def date_generator(*details)
-      if !details[1].nil? && details[1].size == 6
-       date = details[1] 
-      elsif !details[2].nil?
-        date = details[2]
-      elsif details[1].nil?
-          date = Date.today.strftime("%m%d%C")
-      end
-    end
-
-    def keys_hash(key)
+    #3 helper for #5 - shifts_hash
+    def keys_hash(key) 
       keys = Hash.new(0)
 
       keys[:a_key] = key[0..1].to_i
@@ -39,6 +41,7 @@
       keys
     end
 
+    #4 # helper for #5 - shifts_hash
     def offsets_hash(date)
       offsets = Hash.new(0)
       date_squared = date.to_i * date.to_i
@@ -52,7 +55,8 @@
       offsets
     end 
 
-    def shifts_hash(key, date)
+    #6 - helper for encryption, decryption, rotate message, and change_letter
+    def shifts_hash(key, date) 
       shifts = Hash.new(0)
       shifts[:a_shift] = keys_hash(key)[:a_key] + offsets_hash(date)[:a_offset]
       shifts[:b_shift] = keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset]
@@ -62,6 +66,8 @@
       shifts
     end
 
+
+    #7 - helper for encryption, decryption, rotate message, and change_letter
     def shifts_hash_backwards(key, date)
       shifts = Hash.new(0)
       shifts[:a_shift] = -(keys_hash(key)[:a_key] + offsets_hash(date)[:a_offset])
@@ -75,13 +81,13 @@
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
-      shifts = shifts_hash(key_generator(*details), date_generator(*details))
+      shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details))
    
       encrypt_hash[:encryption] = rotate_message(details[0], shifts)
       
-      encrypt_hash[:key] = key_generator(*details)
+      encrypt_hash[:key] = @inputs.key_generator(*details)
 
-      encrypt_hash[:date] = date_generator(*details)
+      encrypt_hash[:date] = @inputs.date_generator(*details)
 
       encrypt_hash
     end
