@@ -74,18 +74,6 @@
         encrypt_hash
     end
 
-       shifted_message = []
-        message.each.with_index do |msg_character, index|
-       
-          if (index.to_f / 4) == 0
-            shifted_message << change_letter(msg_character, shifts[0])
-          elsif (index / 4) == 0.25
-            shifted_message << change_letter(msg_character, shifts[1])
-            require 'pry'; binding.pry
-          elsif (index / 4) == 0.50
-            shifted_message << change_letter(msg_character, shifts[2])
-          elsif (index / 4) == 1
-            shifted_message << change_letter(msg_character, shifts[3])
             
 
     def rotate_message(message, shifts)
