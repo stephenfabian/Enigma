@@ -24,16 +24,6 @@ describe Enigma do
   # end
 
   
-  xit 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
-    enigma = Enigma.new
-    expected = {
-                encryption: "hello world",
-                key: "02715",
-                date: "040895"
-              }
-    expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
-  end
-    
   xit 'can accept key and date as optional arguments - test1' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world")
@@ -119,7 +109,7 @@ describe Enigma do
     expect(enigma.change_letter("h", 3)).to eq("k")
   end
 
-  xit '.encrypt - can return hash with encryption, key and date' do
+  it '.encrypt - can return hash with encryption, key and date' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",

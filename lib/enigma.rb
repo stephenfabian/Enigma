@@ -1,7 +1,12 @@
   require 'date'
-  require './inputs'
+  require_relative './inputs'
 
   class Enigma
+
+    def initialize
+      @inputs = Inputs.new
+
+    end
 
     #1 helper for encrypt/decrypt
     # def key_generator(*details)   
@@ -76,13 +81,13 @@
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
-      shifts = shifts_hash(key_generator(*details), date_generator(*details))
+      shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details))
    
       encrypt_hash[:encryption] = rotate_message(details[0], shifts)
       
-      encrypt_hash[:key] = key_generator(*details)
+      encrypt_hash[:key] = @inputs.key_generator(*details)
 
-      encrypt_hash[:date] = date_generator(*details)
+      encrypt_hash[:date] = @inputs.date_generator(*details)
 
       encrypt_hash
     end
