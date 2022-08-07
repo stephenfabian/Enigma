@@ -126,15 +126,14 @@ describe Enigma do
    expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
   end
 
-  xit '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
+  it '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
     enigma = Enigma.new
-    encrypted = enigma.encrypt("hello world", "02715")
-
     expected =  {
                   decryption: "hello world",
                   key: "02715",
                   date: "040895"
                 }
+                
     expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
   end
 end
