@@ -1,3 +1,4 @@
+require 'date'
 class Inputs   
    
    def key_generator(*details)   
@@ -9,7 +10,6 @@ class Inputs
       end
     end
 
-    #2 helper for encrypt/decrypt
     def date_generator(*details) 
       if !details[1].nil? && details[1].size == 6
        date = details[1] 

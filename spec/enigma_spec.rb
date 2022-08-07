@@ -48,7 +48,7 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
   
-  xit '.offsets_hash - finds offsets A-D' do
+  it '.offsets_hash - finds offsets A-D' do
    enigma = Enigma.new
    expected = { :a_offset => 1,
                 :b_offset => 0,
@@ -60,7 +60,7 @@ describe Enigma do
    
   end
 
-  xit '.keys_hash - finds keys A-D' do
+  it '.keys_hash - finds keys A-D' do
     enigma = Enigma.new
     
     expected = {
@@ -72,7 +72,7 @@ describe Enigma do
     expect(enigma.keys_hash("02715")).to eq(expected)
   end
 
-  xit '.shifts_hash - can calculate each shift: key + offset' do
+  it '.shifts_hash - can calculate each shift: key + offset' do
     enigma = Enigma.new
     enigma.keys_hash("02715")
     enigma.offsets_hash("040895")
@@ -86,7 +86,7 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
-  xit '.shifts_hash_backwards - can calculate each negative shift: key + offset' do
+  it '.shifts_hash_backwards - can calculate each negative shift: key + offset' do
     enigma = Enigma.new
     enigma.keys_hash("02715")
     enigma.offsets_hash("040895")
@@ -102,12 +102,12 @@ describe Enigma do
 
 
 
-  xit '.change_letter - shift one character of a message' do
+  # xit '.change_letter - shift one character of a message' do
    
-    enigma = Enigma.new
+  #   enigma = Enigma.new
     
-    expect(enigma.change_letter("h", 3)).to eq("k")
-  end
+  #   expect(enigma.change_letter("h", 3)).to eq("k")
+  # end
 
   it '.encrypt - can return hash with encryption, key and date' do
     enigma = Enigma.new
@@ -120,11 +120,11 @@ describe Enigma do
 
   end
 
-  xit '.rotate_message - can shift a whole message' do
-   enigma = Enigma.new
-   shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
-   expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
-  end
+  # xit '.rotate_message - can shift a whole message' do
+  #  enigma = Enigma.new
+  #  shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
+  #  expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
+  # end
 
   it '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
     enigma = Enigma.new
@@ -133,7 +133,7 @@ describe Enigma do
                   key: "02715",
                   date: "040895"
                 }
-                
+
     expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
   end
 end
