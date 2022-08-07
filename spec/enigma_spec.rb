@@ -7,6 +7,19 @@ describe Enigma do
     expect(enigma).to be_an_instance_of(Enigma)
   end
 
+  it 'can generate the key - if key is not given, generate random one' do
+   enigma = Enigma.new
+   details = ("hello world", "02715", "040895")
+   expect(enigma.key_generator(details)).to eq("02715")
+
+   details = ("hello world", "040895")
+   expect(enigma.key_generator(details).length).to eq(5)
+
+   details = ("hello world")
+   expect(enigma.key_generator(details).length).to eq(5)
+  end
+
+  end
   xit 'encrypt method can take a message, key and date arguments, return hash - encryption not functinal yet' do
     enigma = Enigma.new
     expected = {

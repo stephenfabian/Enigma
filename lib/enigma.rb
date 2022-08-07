@@ -45,9 +45,10 @@
 
     def encrypt(*details)
 
+
       encrypt_hash = Hash.new(0)
       #MESSAGE
-
+      
      #key (make into method?)
       if !details[1].nil? && details[1].size == 5 
         key = details[1]
