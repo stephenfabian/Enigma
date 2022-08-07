@@ -11,7 +11,7 @@ handle.close
 
 
 enigma = Enigma.new
-encrypted_text = enigma.encrypt((incoming_text), "02715", "040895")[:encryption]
+encrypted_text = enigma.encrypt(incoming_text, "02715", "040895")[:encryption]
 
 
 writer = File.open(ARGV[1], "w")

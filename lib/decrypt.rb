@@ -6,12 +6,9 @@ incoming_text = handle.read
 
 handle.close
 
-
 enigma = Enigma.new
 
-decrypted_text = enigma.decrypt(incoming_text, ARGV[2], ARGV[3])[:encryption]
-
-
+decrypted_text = enigma.decrypt(incoming_text, ARGV[2], ARGV[3])[:decryption]
 
 writer = File.open(ARGV[1], "w")
 
