@@ -86,6 +86,21 @@
       encrypt_hash
     end
 
+    def decrypt(*details)
+
+      decrypt_hash = Hash.new(0)
+
+      shifts = shifts_hash_backwards(key_generator(*details), date_generator(*details))
+   
+      decrypt_hash[:decryption] = rotate_message(details[0], shifts)
+      
+      decrypt_hash[:key] = key_generator(*details)
+
+      decrypt_hash[:date] = date_generator(*details)
+
+      decrypt_hash
+    end
+
             
 
     def rotate_message(message, shifts)
