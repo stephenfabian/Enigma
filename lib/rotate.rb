@@ -1,4 +1,7 @@
+require_relative './shiftable'
+
 class Rotate
+  include Shiftable
 
   def rotate_message(message, shifts)
     split_message = message.split("")

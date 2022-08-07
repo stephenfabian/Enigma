@@ -1,18 +1,22 @@
 require './rotate'
 
 describe Rotate do
-  
-  xit '.rotate_message - can shift a whole message' do
-    enigma = Enigma.new
-    shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
-
-    expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
+  before :each do
+    @rotate = Rotate.new
   end
 
-  xit '.change_letter - shift one character of a message' do
-    enigma = Enigma.new
-    
-    expect(enigma.change_letter("h", 3)).to eq("k")
-  end
+    it 'exists' do
+      expect(@rotate).to be_an_instance_of(Rotate)
+    end
+
+    it '.rotate_message - can shift a whole message' do
+      shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
+
+      expect(@rotate.rotate_message("hello world", shifts)).to eq("keder ohulw")
+    end
+
+    it '.change_letter - shift one character of a message' do
+      expect(@rotate.change_letter("h", 3)).to eq("k")
+    end
 
 end
