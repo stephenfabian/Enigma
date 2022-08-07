@@ -79,7 +79,7 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
-  xit 'change shift one character of a message' do
+  it 'change shift one character of a message' do
    
     enigma = Enigma.new
     
