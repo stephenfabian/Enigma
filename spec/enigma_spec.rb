@@ -65,7 +65,7 @@ describe Enigma do
     expect(enigma.keys_hash("02715")).to eq(expected)
   end
 
-  it 'can calculate each shift - key + offset' do
+  xit 'can calculate each shift - key + offset' do
     enigma = Enigma.new
     enigma.keys_hash("02715")
     enigma.offsets_hash("040895")
@@ -79,6 +79,13 @@ describe Enigma do
     expect(enigma.shifts_hash("02715", "040895")).to eq(expected)
   end
 
+  it 'change shift one character of a message' do
+   
+    enigma = Enigma.new
+    
+    expect(enigma.change_letter("h", 3)).to eq("k")
+  end
+
   xit 'can encrypt a message' do
     enigma = Enigma.new
     expected = {
@@ -88,6 +95,12 @@ describe Enigma do
               }
     expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
 
+  end
+
+  it 'can shift a whole message' do
+   enigma = Enigma.new
+   shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
+   expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
   end
 
 end
