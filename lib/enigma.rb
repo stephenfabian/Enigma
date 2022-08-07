@@ -18,6 +18,16 @@
       end
     end
 
+    def date_generator(*details)
+      if !details[1].nil? && details[1].size == 6
+       date = details[1] 
+      elsif !details[2].nil?
+        date = details[2]
+      elsif details[1].nil?
+          date = Date.today.strftime("%m%d%C")
+      end
+    end
+
     def keys_hash(key)
       keys = Hash.new(0)
 
@@ -55,24 +65,12 @@
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
-      #MESSAGE
   
-      #DATE -> (make into method)
-      if !details[2].nil? && details[2].size == 6 
-       date = details[2]
-      else
-          date = Date.today.strftime("%m%d%C")
-      end
-
       #encryption
       encrypt_hash[:encryption] = rotate_message(details[0], shifts_hash())
     
-      shifts = (shifts_hash(encrypt_hash[:key], encrypt_hash[:date])).values
-      message = encrypt_hash[:encryption].split("")
-   
-
-
-       
+      # shifts = (shifts_hash(encrypt_hash[:key], encrypt_hash[:date])).values
+         
         encrypt_hash
     end
 
