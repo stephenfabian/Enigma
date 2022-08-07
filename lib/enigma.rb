@@ -9,6 +9,15 @@
 
     # end
 
+    def key_generator(*details)
+      if !details[1].nil? && details[1].size == 5 
+        key = details[1]
+      else
+        random_4_digits = rand.to_s[3..6]
+        key = "0#{random_4_digits.to_i}"
+      end
+    end
+
       def keys_hash(key)
         keys = Hash.new(0)
 
@@ -45,16 +54,12 @@
 
     def encrypt(*details)
 
+
       encrypt_hash = Hash.new(0)
       #MESSAGE
-
+      
      #key (make into method?)
-      if !details[1].nil? && details[1].size == 5 
-        key = details[1]
-      else
-        key = rand.to_s[2..6]
-      end
-
+  
       #DATE -> (make into method)
       if !details[2].nil? && details[2].size == 6 
        date = details[2]
