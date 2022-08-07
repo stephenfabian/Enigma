@@ -62,6 +62,16 @@
       shifts
     end
 
+    def shifts_hash_backwards(key, date)
+      shifts = Hash.new(0)
+      shifts[:a_shift] = -(keys_hash(key)[:a_key] + offsets_hash(date)[:a_offset])
+      shifts[:b_shift] = -(keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset])
+      shifts[:c_shift] = -(keys_hash(key)[:c_key] + offsets_hash(date)[:c_offset])
+      shifts[:d_shift] = -(keys_hash(key)[:d_key] + offsets_hash(date)[:d_offset])
+
+      shifts
+    end
+
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
