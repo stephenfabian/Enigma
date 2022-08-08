@@ -27,7 +27,6 @@ module Shiftable
   def shifts_hash(key, date) 
     shifts = Hash.new(0)
     shifts[:a_shift] = keys_hash(key)[:a_key] + offsets_hash(date)[:a_offset]
-#  require 'pry'; binding.pry # fails here when only message and key are entered as encrypt args
     shifts[:b_shift] = keys_hash(key)[:b_key] + offsets_hash(date)[:b_offset]
     shifts[:c_shift] = keys_hash(key)[:c_key] + offsets_hash(date)[:c_offset]
     shifts[:d_shift] = keys_hash(key)[:d_key] + offsets_hash(date)[:d_offset]

@@ -8,11 +8,12 @@ require './lib/enigma'
 
 
   enigma = Enigma.new
-  #1 - THIS WORKS - give encrypt three arguments
-    # encrypt = enigma.encrypt(incoming_text, "82648", "240818")  
 
-  #2 - THIS DOESN'T WORK - give encrypt only message argument
+  #1 - THIS DOESN'T WORK - give encrypt only message argument
     encrypt = enigma.encrypt(incoming_text)
+
+  #2 - THIS WORKS - give encrypt three arguments
+    # encrypt = enigma.encrypt(incoming_text, "82648", "240818")  
 
   #3 THIS WORKS - give encrypt message and key
     # encrypt = enigma.encrypt(incoming_text, "82648")
