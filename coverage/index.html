@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-08T14:54:43-06:00">2022-08-08T14:54:43-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-08T17:18:50-06:00">2022-08-08T17:18:50-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         12.39
+         11.76
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>115</b> relevant lines,
-    <span class="green"><b>115</b> lines covered</span> and
+    <b>119</b> relevant lines,
+    <span class="green"><b>119</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,22 +73,22 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#41e3fdcf155a23bd32fa5dc2463d956d598ff3b2" class="src_link" title="lib/enigma.rb">lib/enigma.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">79</td>
-            <td class="cell--number">23</td>
-            <td class="cell--number">23</td>
+            <td class="cell--number">47</td>
+            <td class="cell--number">27</td>
+            <td class="cell--number">27</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.83</td>
+            <td class="cell--number">2.85</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d8b7cb61fce1c4e77ca0d71ab422b25be27d4c24" class="src_link" title="lib/inputs.rb">lib/inputs.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">47</td>
+            <td class="cell--number">23</td>
             <td class="cell--number">13</td>
             <td class="cell--number">13</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">7.00</td>
+            <td class="cell--number">4.15</td>
             
           </tr>
         
@@ -167,8 +167,8 @@
     
 
     <div class="t-line-summary">
-      <b>23</b> relevant lines.
-      <span class="green"><b>23</b> lines covered</span> and
+      <b>27</b> relevant lines.
+      <span class="green"><b>27</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -334,13 +334,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">       # ***** ORIGINAL METHOD *************</code>
+            
+
+            <code class="ruby">    def encrypt(message, key=nil, date=nil)</code>
           </li>
         </div>
       
@@ -351,18 +351,18 @@
 
             
 
-            <code class="ruby">    # def encrypt(*details)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="17">
+            <span class="hits">4</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      encrypt_hash = Hash.new(0)</code>
           </li>
         </div>
       
@@ -373,29 +373,29 @@
 
             
 
-            <code class="ruby">    #   encrypt_hash = Hash.new(0)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="19">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    #   shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details)) # fails here when encrypt has only message and key args</code>
+            
+
+            <code class="ruby">      key = @inputs.key_generator(key)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="20">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    #   encrypt_hash[:encryption] = @rotate.rotate_message(details[0], shifts)</code>
+            
+
+            <code class="ruby">      date = @inputs.date_generator(date)</code>
           </li>
         </div>
       
@@ -406,18 +406,18 @@
 
             
 
-            <code class="ruby">      </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="22">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    #   encrypt_hash[:key] = @inputs.key_generator(*details)</code>
+            
+
+            <code class="ruby">      shifts = shifts_hash(key, date)</code>
           </li>
         </div>
       
@@ -428,40 +428,40 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">       </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="24">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    #   encrypt_hash[:date] = @inputs.date_generator(*details)</code>
+            
+
+            <code class="ruby">      encrypt_hash[:encryption] = @rotate.rotate_message(message, shifts)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="25">
+            <span class="hits">4</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      encrypt_hash[:key] = key</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="26">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    #   encrypt_hash</code>
+            
+
+            <code class="ruby">      encrypt_hash[:date] = date</code>
           </li>
         </div>
       
@@ -472,18 +472,18 @@
 
             
 
-            <code class="ruby">    # end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="28">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    </code>
+            
+
+            <code class="ruby">      encrypt_hash</code>
           </li>
         </div>
       
@@ -494,7 +494,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -505,7 +505,7 @@
 
             
 
-            <code class="ruby">  # ******** REVISED METHOD ***********</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -516,7 +516,7 @@
 
             
 
-            <code class="ruby">    def encrypt(message, key=nil, date=nil)</code>
+            <code class="ruby">    def decrypt(ciphertext, key=nil, date=nil)</code>
           </li>
         </div>
       
@@ -532,13 +532,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="33">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="33">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      encrypt_hash = Hash.new(0)</code>
+            <code class="ruby">      decrypt_hash = Hash.new(0)</code>
           </li>
         </div>
       
@@ -554,62 +554,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="35">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="35">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      shifts = shifts_hash(@inputs.key_generator(key), @inputs.date_generator(date))</code>
+            <code class="ruby">      key = @inputs.key_generator(key)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="36">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">       </code>
+            
+
+            <code class="ruby">      date = @inputs.date_generator(date)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="37">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">      encrypt_hash[:encryption] = @rotate.rotate_message(message, shifts)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
-            
-
-            <code class="ruby">      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="39">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">      encrypt_hash[:key] = @inputs.key_generator(key)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -620,18 +587,62 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="41">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="38">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      encrypt_hash[:date] = @inputs.date_generator(date)</code>
+            <code class="ruby">      shifts = shifts_hash_backwards(key, date)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">   </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="40">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      decrypt_hash[:decryption] = @rotate.rotate_message(ciphertext, shifts)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="41">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      decrypt_hash[:key] = key</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="42">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      decrypt_hash[:date] = date</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -642,24 +653,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="43">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="44">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      encrypt_hash</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
+            <code class="ruby">      decrypt_hash</code>
           </li>
         </div>
       
@@ -670,7 +670,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -687,358 +687,6 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
-            
-
-            <code class="ruby">           # ***** ORIGINAL METHOD *************</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
-            
-
-            <code class="ruby">    # def decrypt(*details)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">    #   decrypt_hash = Hash.new(0)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
-            
-
-            <code class="ruby">    #   shifts = shifts_hash_backwards(@inputs.key_generator(*details), @inputs.date_generator(*details))</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="53">
-            
-            
-
-            
-
-            <code class="ruby">   </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">    #   decrypt_hash[:decryption] = @rotate.rotate_message(details[0], shifts)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby">    #   decrypt_hash[:key] = @inputs.key_generator(*details)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="57">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">    #   decrypt_hash[:date] = @inputs.date_generator(*details)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">    #   decrypt_hash</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">    # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">      # ******** REVISED METHOD ***********</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def decrypt(ciphertext, key=nil, date=nil)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="66">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      decrypt_hash = Hash.new(0)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="68">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      shifts = shifts_hash_backwards(@inputs.key_generator(key), @inputs.date_generator(date))</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="69">
-            
-            
-
-            
-
-            <code class="ruby">   </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="70">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      decrypt_hash[:decryption] = @rotate.rotate_message(ciphertext, shifts)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="71">
-            
-            
-
-            
-
-            <code class="ruby">      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="72">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      decrypt_hash[:key] = @inputs.key_generator(key)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="74">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      decrypt_hash[:date] = @inputs.date_generator(date)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="75">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="76">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      decrypt_hash</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="79">
             
             
 
@@ -1108,40 +756,40 @@
 
             
 
-            <code class="ruby">   # ***** ORIGINAL METHOD *************</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="4">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #  def key_generator(*details)   </code>
+            
+
+            <code class="ruby">   def key_generator(key)   </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="5">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="5">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">  #     if !details[1].nil? &amp;&amp; details[1].size == 5 </code>
+            
+
+            <code class="ruby">      if !key.nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
+          <li class="covered" data-hits="6" data-linenumber="6">
+            <span class="hits">6</span>
             
 
-            <code class="ruby">  #       key = details[1]</code>
+            
+
+            <code class="ruby">        key_to_use = key</code>
           </li>
         </div>
       
@@ -1152,29 +800,29 @@
 
             
 
-            <code class="ruby">  #     else</code>
+            <code class="ruby">      else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="8">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  #       random_4_digits = rand.to_s[3..6]</code>
+            
+
+            <code class="ruby">        random_5_digits = rand.to_s[2..6]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="9">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  #       key = &quot;0#{random_4_digits.to_i}&quot;</code>
+            
+
+            <code class="ruby">        key_to_use = random_5_digits.gsub(random_5_digits[0],&quot;0&quot;)</code>
           </li>
         </div>
       
@@ -1185,18 +833,18 @@
 
             
 
-            <code class="ruby">  #     end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="11">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="11">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">  #     key</code>
+            
+
+            <code class="ruby">      key_to_use</code>
           </li>
         </div>
       
@@ -1207,7 +855,7 @@
 
             
 
-            <code class="ruby">  #   end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1223,271 +871,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
-            
-
-            <code class="ruby">  # ******** REVISED METHOD ***********</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">   def key_generator(key)   </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="14" data-linenumber="16">
-            <span class="hits">14</span>
-            
-
-            
-
-            <code class="ruby">      if !key.nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="11" data-linenumber="17">
-            <span class="hits">11</span>
-            
-
-            
-
-            <code class="ruby">        key_to_use = key</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="18">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="19">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">        random_4_digits = rand.to_s[3..6]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="20">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">        key_to_use = &quot;0#{random_4_digits.to_i}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="14" data-linenumber="22">
-            <span class="hits">14</span>
-            
-
-            
-
-            <code class="ruby">      key_to_use</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="23">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
-            
-
-            <code class="ruby">   # ***** ORIGINAL METHOD *************</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
-            
-
-            <code class="ruby">    # def date_generator(*details) </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
-            
-
-            <code class="ruby">    #   if !details[1].nil? &amp;&amp; details[1].size == 6</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
-            
-
-            <code class="ruby">    #    date = details[1] </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-
-            <code class="ruby">    #   elsif !details[2].nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
-            
-
-            <code class="ruby">    #     date = details[2]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="30">
-            
-            
-
-            
-
-            <code class="ruby">    #   elsif details[1].nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
-            
-
-            <code class="ruby">    #       date = Date.today.strftime(&quot;%m%d%C&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
-            
-
-            <code class="ruby">    #   else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
-            
-
-            <code class="ruby">    #     date = Date.today.strftime(&quot;%m%d%C&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="34">
-            
-            
-
-            
-
-            <code class="ruby">    #   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="35">
-            
-            
-
-            
-
-            <code class="ruby">    #   date</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
-            
-
-            <code class="ruby">    # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="37">
-            
-            
-
-            
-
-            <code class="ruby"># ******** REVISED METHOD ***********</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="14">
             <span class="hits">1</span>
             
 
@@ -1498,8 +882,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="39">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="8" data-linenumber="15">
+            <span class="hits">8</span>
             
 
             
@@ -1509,8 +893,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="40">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="4" data-linenumber="16">
+            <span class="hits">4</span>
             
 
             
@@ -1520,7 +904,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
@@ -1531,18 +915,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="42">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="4" data-linenumber="18">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">        date_to_use = Date.today.strftime(&quot;%m%d%C&quot;)</code>
+            <code class="ruby">        date_to_use = Date.today.strftime(&quot;%m%d%y&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
@@ -1553,8 +937,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="44">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="8" data-linenumber="20">
+            <span class="hits">8</span>
             
 
             
@@ -1564,7 +948,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -1575,7 +959,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -1586,7 +970,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
@@ -2785,7 +2169,7 @@
 
             
 
-            <code class="ruby">      expect(@inputs.date_generator(nil)).to eq(Date.today.strftime(&quot;%m%d%C&quot;))</code>
+            <code class="ruby">      expect(@inputs.date_generator(nil)).to eq(Date.today.strftime(&quot;%m%d%y&quot;))</code>
           </li>
         </div>
       

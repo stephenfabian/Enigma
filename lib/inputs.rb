@@ -1,33 +1,21 @@
 require 'date'
 class Inputs   
-   # ***** ORIGINAL METHOD *************
-  #  def key_generator(*details)   
-  #     if !details[1].nil? && details[1].size == 5 
-  #       key = details[1]
-  #     else
-  #       random_4_digits = rand.to_s[3..6]
-  #       key = "0#{random_4_digits.to_i}"
-  #     end
-  #     key
-  #   end
 
-  # ******** REVISED METHOD ***********
    def key_generator(key)   
       if !key.nil?
         key_to_use = key
       else
-        random_4_digits = rand.to_s[3..6]
-        key_to_use = "0#{random_4_digits.to_i}"
+        random_5_digits = rand.to_s[2..6]
+        key_to_use = random_5_digits.gsub(random_5_digits[0],"0")
       end
       key_to_use
     end
 
-# ******** REVISED METHOD ***********
     def date_generator(date) 
       if !date.nil?
         date_to_use = date
       else
-        date_to_use = Date.today.strftime("%m%d%C")
+        date_to_use = Date.today.strftime("%m%d%y")
       end
       date_to_use
     end
