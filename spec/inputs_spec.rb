@@ -18,7 +18,7 @@ require './inputs'
 
     it 'can generate the date - if date is not given, generate todays date'  do
       expect(@inputs.date_generator("040895")).to eq("040895")
-      expect(@inputs.date_generator(nil)).to eq(Date.today.strftime("%m%d%C"))
+      expect(@inputs.date_generator(nil)).to eq(Date.today.strftime("%m%d%y"))
     end
 
   end
