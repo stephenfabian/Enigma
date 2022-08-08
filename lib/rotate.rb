@@ -21,12 +21,11 @@ class Rotate
   end
 
   def change_letter(character, shift)
+    downcase_char = character.downcase
     alphabet_array = ("a".."z").to_a << " "
-    rotated_alphabet = alphabet_array.rotate(shift)
-    if !alphabet_array.include?(character)
-        return character
-    end
-    rotated_alphabet[alphabet_array.find_index(character)]
+    rotated_alphabet_array = alphabet_array.rotate(shift)
+    return character if !alphabet_array.include?(downcase_char)
+    rotated_alphabet_array[alphabet_array.find_index(downcase_char)]
   end
   
 end

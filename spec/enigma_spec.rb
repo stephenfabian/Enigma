@@ -3,29 +3,12 @@ require './enigma'
 
 describe Enigma do 
 
-  xit 'exists' do
+  it 'exists' do
     enigma = Enigma.new
     expect(enigma).to be_an_instance_of(Enigma)
   end
-
-  # xit 'can generate the key - if key is not given, generate random one' do
-  #  enigma = Enigma.new
-
-  #  expect(enigma.key_generator("hello world", "02715", "040895")).to eq("02715")
-  #  expect(enigma.key_generator("hello world", "02715").length).to eq(5)
-  #  expect(enigma.key_generator("hello world").length).to eq(5)
-  # end
-
-  # xit 'can generate the date - if date is not given, generate todays date'  do
-  #   enigma = Enigma.new
-   
-  #   expect(enigma.date_generator("hello world", "02715", "040895")).to eq("040895")
-  #   expect(enigma.date_generator("hello world", "040895")).to eq("040895")
-  #   expect(enigma.date_generator("hello world")).to eq(Date.today.strftime("%m%d%C"))
-  # end
-
   
-  xit 'can accept key and date as optional arguments - test1' do
+  it 'can accept key and date as optional arguments - test1' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world")
 
@@ -33,7 +16,7 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
 
-  xit 'can accept key and date as optional arguments - test2 ' do
+  it 'can accept key and date as optional arguments - test2 ' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world", "02715")
 
@@ -41,7 +24,7 @@ describe Enigma do
     expect(encryption.keys.count).to eq(3)
   end
   
-  xit 'can accept key and date as optional arguments - test3 ' do
+  it 'can accept key and date as optional arguments - test3 ' do
     enigma = Enigma.new
     encryption = enigma.encrypt("hello world", "040895")
 
@@ -102,14 +85,6 @@ describe Enigma do
   end
 
 
-
-  # xit '.change_letter - shift one character of a message' do
-   
-  #   enigma = Enigma.new
-    
-  #   expect(enigma.change_letter("h", 3)).to eq("k")
-  # end
-
   it '.encrypt - can return hash with encryption, key and date' do
     enigma = Enigma.new
     expected = {
@@ -118,14 +93,10 @@ describe Enigma do
                 date: "040895"
               }
     expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
+    # expect(enigma.encrypt("hello world", "03981", "080720")).to eq(expected) ***** this failed in runner
 
   end
 
-  # xit '.rotate_message - can shift a whole message' do
-  #  enigma = Enigma.new
-  #  shifts = {:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20}
-  #  expect(enigma.rotate_message("hello world", shifts)).to eq("keder ohulw")
-  # end
 
   it '.decrypt - takes ciphertext string/key, optional date as third argument, ouputs hash with decryption, key and date' do
     enigma = Enigma.new
@@ -135,6 +106,15 @@ describe Enigma do
                   date: "040895"
                 }
 
+    expected2 =  {
+                  decryption: "hello world",
+                  key: "03981",
+                  date: "080720"
+                }
+
+
     expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
+    expect(enigma.decrypt("sublzpmobau", "03981", "080720")).to eq(expected2)
+  
   end
 end

@@ -9,13 +9,13 @@ handle.close
 
 enigma = Enigma.new
 
-decrypted_text = enigma.decrypt(incoming_text, ARGV[2], ARGV[3])[:encryption]
+decrypt = enigma.decrypt(incoming_text, ARGV[2], ARGV[3])
 
 
 
 writer = File.open(ARGV[1], "w")
 
-writer.write(decrypted_text)
+writer.write(decrypt[:decryption])
 
 writer.close
 
