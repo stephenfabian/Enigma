@@ -85,8 +85,7 @@
     def encrypt(*details)
 
       encrypt_hash = Hash.new(0)
-      shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details))
-   
+      shifts = shifts_hash(@inputs.key_generator(*details), @inputs.date_generator(*details)) # fails here when encrypt has only message and key args
       encrypt_hash[:encryption] = @rotate.rotate_message(details[0], shifts)
       
       encrypt_hash[:key] = @inputs.key_generator(*details)
