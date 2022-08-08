@@ -21,19 +21,7 @@ class Inputs
       end
       key_to_use
     end
-   # ***** ORIGINAL METHOD *************
-    # def date_generator(*details) 
-    #   if !details[1].nil? && details[1].size == 6
-    #    date = details[1] 
-    #   elsif !details[2].nil?
-    #     date = details[2]
-    #   elsif details[1].nil?
-    #       date = Date.today.strftime("%m%d%C")
-    #   else
-    #     date = Date.today.strftime("%m%d%C")
-    #   end
-    #   date
-    # end
+
 # ******** REVISED METHOD ***********
     def date_generator(date) 
       if !date.nil?

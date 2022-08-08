@@ -32,13 +32,14 @@
 
       encrypt_hash = Hash.new(0)
 
-      shifts = shifts_hash(@inputs.key_generator(key), @inputs.date_generator(date))
+      key = @inputs.key_generator(key)
+      date = @inputs.date_generator(date)
+
+      shifts = shifts_hash(key, date)
        
       encrypt_hash[:encryption] = @rotate.rotate_message(message, shifts)
-      
-      encrypt_hash[:key] = @inputs.key_generator(key)
-
-      encrypt_hash[:date] = @inputs.date_generator(date)
+      encrypt_hash[:key] = key
+      encrypt_hash[:date] = date
 
       encrypt_hash
     end
@@ -65,13 +66,14 @@
 
       decrypt_hash = Hash.new(0)
 
-      shifts = shifts_hash_backwards(@inputs.key_generator(key), @inputs.date_generator(date))
+      key = @inputs.key_generator(key)
+      date = @inputs.date_generator(date)
+
+      shifts = shifts_hash_backwards(key, date)
    
       decrypt_hash[:decryption] = @rotate.rotate_message(ciphertext, shifts)
-      
-      decrypt_hash[:key] = @inputs.key_generator(key)
-
-      decrypt_hash[:date] = @inputs.date_generator(date)
+      decrypt_hash[:key] = key
+      decrypt_hash[:date] = date
 
       decrypt_hash
     end
