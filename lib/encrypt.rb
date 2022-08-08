@@ -12,18 +12,14 @@ require './lib/enigma'
     # encrypt = enigma.encrypt(incoming_text, "82648", "240818")  
 
   #2 - THIS DOESN'T WORK - give encrypt only message argument
-    # encrypt = enigma.encrypt(incoming_text)
+    encrypt = enigma.encrypt(incoming_text)
 
-  #3        - give encrypt message and key
-    encrypt = enigma.encrypt(incoming_text, "82648")
+  #3 THIS WORKS - give encrypt message and key
+    # encrypt = enigma.encrypt(incoming_text, "82648")
 
   writer = File.open(ARGV[1], "w")
 
-  #1
-    # writer.write(enigma.encrypt(incoming_text, "82648", "240818")[:encryption]) 
-
-  #2 and #3
-    writer.write(encrypt[:encryption]) 
+  writer.write(encrypt[:encryption]) 
 
   writer.close
 
