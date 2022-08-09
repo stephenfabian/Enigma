@@ -27,5 +27,4 @@ class Rotate
     return character if !alphabet_array.include?(downcase_char)
     rotated_alphabet_array[alphabet_array.find_index(downcase_char)]
   end
-  
 end

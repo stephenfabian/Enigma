@@ -11,15 +11,10 @@
 
     def encrypt(message, key=nil, date=nil)
       encrypt_hash = Hash.new(0)
-
       key = key_generator(key)
-
       date = date_generator(date)
-
       shifts = shifts_hash(key, date)
-       
       encrypt_hash[:encryption] = @rotate.rotate_message(message, shifts)
-
       encrypt_hash[:key] = key
       encrypt_hash[:date] = date
       encrypt_hash
@@ -27,15 +22,10 @@
 
     def decrypt(ciphertext, key=nil, date=nil)
       decrypt_hash = Hash.new(0)
-
       key = key_generator(key)
-
       date = date_generator(date)
-
       shifts = shifts_hash_backwards(key, date)
-   
       decrypt_hash[:decryption] = @rotate.rotate_message(ciphertext, shifts)
-
       decrypt_hash[:key] = key
       decrypt_hash[:date] = date
       decrypt_hash
