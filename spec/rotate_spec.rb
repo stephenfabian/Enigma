@@ -2,6 +2,7 @@ require_relative 'spec_helper.rb'
 require './rotate'
 
 describe Rotate do
+  
   before :each do
     @rotate = Rotate.new
   end
@@ -16,9 +17,10 @@ describe Rotate do
       expect(@rotate.rotate_message("hello world!", shifts)).to eq("keder ohulw!")
     end
 
-    it '.change_letter - shift one character of a message.' do
+    it '.change_letter - shifts given alphabetical character, special characters do not get shifted' do
       expect(@rotate.change_letter("h", 3)).to eq("k")
-      expect(@rotate.change_letter("H", 3)).to eq("k")
+      expect(@rotate.change_letter("H", 6)).to eq("n")
+      expect(@rotate.change_letter("!", 9)).to eq("!")
     end
 
 end
