@@ -49,5 +49,4 @@
       end
       date_to_use
     end
-
   end
